@@ -7,9 +7,10 @@ namespace InpsydeCustomCss\Core;
 
 /**
  * Filter the source for foolish strings.
- * @param $source
  *
- * @return mixed
+ * @param string $source The custom css source code from settings.
+ *
+ * @return string
  */
 function filter_source( $source ) {
 

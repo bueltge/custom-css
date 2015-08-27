@@ -1,7 +1,6 @@
 <?php # -*- coding: utf-8 -*-
 /**
- * Uninstall routines. This file is called automatically when the plugin
- * is deleted per user interface.
+ * Uninstall routines. This file is called automatically when the plugin is deleted per user interface.
  *
  * @see http://codex.wordpress.org/Function_Reference/register_uninstall_hook
  */

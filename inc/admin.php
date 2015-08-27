@@ -79,7 +79,7 @@ function get_admin_page() {
 	<div class="wrap">
 		<form name="inpsyde_custom_css-form" action="options.php" method="post" enctype="multipart/form-data">
 			<?php settings_fields( 'inpsyde_custom_css_settings_group' ); ?>
-			<label for=""><?php esc_attr_e( 'CSS Rules', 'inpsyde_custom_css' ); ?></label><br>
+			<label for="inpsyde_custom_css_settings[source]"><?php esc_attr_e( 'CSS Rules', 'inpsyde_custom_css' ); ?></label><br>
 			<textarea id="inpsyde_custom_css_settings[source]"
 				name="inpsyde_custom_css_settings[source]"><?php echo esc_html(
 					$source
@@ -100,11 +100,13 @@ add_action( 'admin_notices', __NAMESPACE__ . '\get_update_notice' );
  */
 function get_update_notice() {
 
-	if ( ! isset( $_GET[ 'page' ] ) || 'inpsyde_custom_css' !== esc_attr( $_GET[ 'page' ] ) ) {
+	$value = wp_unslash( $_GET );
+
+	if ( ! isset( $value[ 'page' ] ) || 'inpsyde_custom_css' !== esc_attr( $value[ 'page' ] ) ) {
 		return;
 	}
 
-	if ( ! isset( $_GET[ 'settings-updated' ] ) || 'true' !== esc_attr( $_GET[ 'settings-updated' ] ) ) {
+	if ( ! isset( $value[ 'settings-updated' ] ) || 'true' !== esc_attr( $value[ 'settings-updated' ] ) ) {
 		return;
 	}
 	?>
@@ -114,6 +116,11 @@ function get_update_notice() {
 	<?php
 }
 
+/**
+ * Register and enqueue script and styles for highlighting source.
+ *
+ * @since  2015-08-25
+ */
 function add_highlight_js() {
 
 	wp_register_style(

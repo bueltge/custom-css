@@ -6,6 +6,7 @@ use InpsydeCustomCss\Core as Core;
 // Prevent direct file access.
 ! defined( 'ABSPATH' ) && die();
 
+// Run also on plugins_loaded hook.
 get_stylesheet();
 /**
  * Print stylesheet for reading source on front end, if is requested.
@@ -26,7 +27,7 @@ function get_stylesheet() {
 	$source   = str_replace( '&gt;', '>', $source );
 	$source   = '/* Request timestamp: ' . date( 'Y-m-d H:i:s' ) . ' */' . "\n" . $source;
 	echo $source;
-	die();
+	exit();
 }
 
 add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\add_stylesheet', 99 );
