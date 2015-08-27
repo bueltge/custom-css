@@ -18,9 +18,7 @@
 namespace InpsydeCustomCss;
 
 // Prevent direct file access.
-if ( ! defined( 'ABSPATH' ) ) {
-	die();
-}
+! defined( 'ABSPATH' ) && die();
 
 add_action( 'plugins_loaded', __NAMESPACE__ . '\init' );
 /**
