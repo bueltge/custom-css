@@ -6,7 +6,7 @@ use InpsydeCustomCss\Core as Core;
 // Prevent direct file access.
 ! defined( 'ABSPATH' ) && die();
 
-add_action( 'plugins_loaded', __NAMESPACE__ . '\get_stylesheet' );
+get_stylesheet();
 /**
  * Print stylesheet for reading source on front end, if is requested.
  *

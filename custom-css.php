@@ -22,19 +22,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 	die();
 }
 
-//add_action( 'plugins_loaded', __NAMESPACE__ . '\init' );
-init();
+add_action( 'plugins_loaded', __NAMESPACE__ . '\init' );
+/**
+ * Run in WordPress environment.
+ */
 function init() {
+
+	require_once( __DIR__ . DIRECTORY_SEPARATOR . 'inc/core.php' );
 
 	// Load only on the front end of the site.
 	if ( ! is_admin() ) {
-		require_once( __DIR__ . DIRECTORY_SEPARATOR . 'inc/core.php' );
 		require_once( __DIR__ . DIRECTORY_SEPARATOR . 'inc/frontend.php' );
 	}
 
 	// Load only on admin area.
 	if ( is_admin() && ! defined( 'DOING_AJAX' ) ) {
-		require_once( __DIR__ . DIRECTORY_SEPARATOR . 'inc/core.php' );
 		require_once( __DIR__ . DIRECTORY_SEPARATOR . 'inc/admin.php' );
 	}
 }
