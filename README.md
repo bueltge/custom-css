@@ -1,6 +1,9 @@
 # Custom CSS
 A simple, solid way to add custom CSS to your WordPress website.
 
+## Description
+The plugin add a admin screen in the WordPress UI to add simple and solid custom css rules for your site. It was create to add simple rules without changes on the stylesheet, like for shorter time. The styles be included about the WordPress way for best performance and not to enhance the head with style blocks.
+
 ### Screenshots
 ![Settings screen](./assets/screenshot-1.png)
 [Settings screen](./assets/screenshot-1.png)
